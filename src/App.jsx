@@ -17,9 +17,9 @@ const posts = [
       role: 'Developer web'
     },
     content: [
-      {type: 'paragraph', content: 'Fala galeraa'},
-      {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifolio. É um projeto que fiz no NLM Return, evento da Rocketseat. O nome do projeto é DoctorCare!'},
-      {type: 'link', content: 'victor.design/doctorcare'},
+      { type: 'paragraph', content: 'Fala galeraa' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifolio. É um projeto que fiz no NLM Return, evento da Rocketseat. O nome do projeto é DoctorCare!' },
+      { type: 'link', content: 'victor.design/doctorcare' },
     ],
     publishedAt: new Date('2024-08-05 18:30:00')
   },
@@ -31,9 +31,9 @@ const posts = [
       role: 'Developer web'
     },
     content: [
-      {type: 'paragraph', content: 'Fala galeraa'},
-      {type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifolio. É um projeto que fiz no NLM Return, evento da Rocketseat. O nome do projeto é DoctorCare!'},
-      {type: 'link', content: 'victor.design/doctorcare'},
+      { type: 'paragraph', content: 'Fala galeraa' },
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifolio. É um projeto que fiz no NLM Return, evento da Rocketseat. O nome do projeto é DoctorCare!' },
+      { type: 'link', content: 'victor.design/doctorcare' },
     ],
     publishedAt: new Date('2024-08-04 12:11:00')
   },
@@ -47,8 +47,16 @@ function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post />
-          <Post />
+          {posts.map(post => {
+            return (
+              <Post
+                key={post.id}
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+            )
+          })}
         </main>
       </div>
     </>
